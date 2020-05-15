@@ -5,10 +5,10 @@ using System.Threading.Tasks;
 
 namespace LankhaffInventoryManagementSystem.Models
 {
-    public interface ICustomerInteface
+    public interface ICustomerInterface
     {
         RegisterCustomer AddCustomer(RegisterCustomer customer);
 
-        IEnumerable<RegisterCustomer> getAllCustomers();
+        IEnumerable<RegisterCustomer> GetAllCustomers();
     }
 }

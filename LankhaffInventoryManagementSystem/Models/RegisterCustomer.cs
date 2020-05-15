@@ -11,13 +11,13 @@ namespace LankhaffInventoryManagementSystem.Models
         [Required]
         public int CustomerID { get; set; }
         [Required]
-        public int CustomerName { get; set; }
+        public string CustomerName { get; set; }
         [Required]
-        public int CustomerEmail { get; set; }
+        public string CustomerEmail { get; set; }
         [Required]
-        public int CustomerTelephone { get; set; }
+        public string CustomerTelephone { get; set; }
         [Required]
-        public int CustomerAddress { get; set; }
+        public string CustomerAddress { get; set; }
 
     }
 }

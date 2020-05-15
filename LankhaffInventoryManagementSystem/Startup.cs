@@ -12,6 +12,7 @@ using Microsoft.EntityFrameworkCore;
 using LankhaffInventoryManagementSystem.Data;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using LankhaffInventoryManagementSystem.Models;
 
 namespace LankhaffInventoryManagementSystem
 {
@@ -34,12 +35,14 @@ namespace LankhaffInventoryManagementSystem
                 options.MinimumSameSitePolicy = SameSiteMode.None;
             });
 
-            services.AddDbContext<ApplicationDbContext>(options =>
+            services.AddDbContext<InventoryDBContext>(options =>
                 options.UseSqlServer(
                     Configuration.GetConnectionString("DefaultConnection")));
 
             services.AddDefaultIdentity<IdentityUser>()
                 .AddEntityFrameworkStores<ApplicationDbContext>();
+
+            services.AddScoped<ICustomerInterface, CustomerRepo>();
 
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
         }

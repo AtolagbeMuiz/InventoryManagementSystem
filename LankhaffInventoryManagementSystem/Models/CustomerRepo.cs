@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 
 namespace LankhaffInventoryManagementSystem.Models
 {
-    public class CustomerRepo : ICustomerInteface
+    public class CustomerRepo : ICustomerInterface
     {
         private readonly InventoryDBContext _context;
 
@@ -20,7 +20,7 @@ namespace LankhaffInventoryManagementSystem.Models
             return customer;
         }
 
-        public IEnumerable<RegisterCustomer> getAllCustomers()
+        public IEnumerable<RegisterCustomer> GetAllCustomers()
         {
             return _context.Customers;
         }

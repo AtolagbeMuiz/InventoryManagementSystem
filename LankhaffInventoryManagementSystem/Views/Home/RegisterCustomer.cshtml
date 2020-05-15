@@ -1,28 +1,30 @@
-﻿@{
+﻿@model RegisterCustomer
+@{
     ViewData["Title"] = "Register Customer";
     ViewBag.PageName = "Register a Customer!";
 }
 
 
-<form action="" method="post" role="form" class="contactForm">
+<form asp-action="RegisterCustomer" method="post" role="form" class="contactForm">
+    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
     <div class="form-group">
-        <input type="text" name="name" class="form-control" id="name" placeholder="Your Name" data-rule="minlen:4" data-msg="Please enter at least 4 chars" />
-        <div class="validation"></div>
+        <input asp-for="CustomerName" type="text" name="name" class="form-control" id="name" placeholder="Your Name" data-rule="minlen:4" data-msg="Please enter at least 4 chars" />
+        <div class="validation"><span asp-validation-for="CustomerName" class="text-danger"></span></div>
     </div>
     <div class="form-group">
-        <input type="email" class="form-control" name="email" id="email" placeholder="Your Email" data-rule="email" data-msg="Please enter a valid email" />
-        <div class="validation"></div>
+        <input asp-for="CustomerEmail" type="email" class="form-control" id="email" placeholder="Your Email" data-rule="email" data-msg="Please enter a valid email" />
+        <div class="validation"><span asp-validation-for="CustomerEmail" class="text-danger"></span></div>
     </div>
     <div class="form-group">
-        <input type="text" class="form-control" name="number" id="subject" placeholder="Phone Number" data-rule="minlen:4" data-msg="Please enter a valid phone number" />
-        <div class="validation"></div>
+        <input asp-for="CustomerTelephone" type="number" class="form-control" id="subject" placeholder="Phone Number" data-rule="minlen:4" data-msg="Please enter a valid phone number" />
+        <div class="validation"><span asp-validation-for="CustomerTelephone" class="text-danger"></span></div>
     </div>
     <div class="form-group">
-        <textarea class="form-control" name="" id="address" rows="5" data-rule="required" data-msg="Please enter your address" placeholder="Your Address"></textarea>
-        <div class="validation"></div>
+        <textarea asp-for="CustomerAddress" class="form-control" name="" id="address" rows="5" data-rule="required" data-msg="Please enter your address" placeholder="Your Address"></textarea>
+        <div class="validation"><span asp-validation-for="CustomerAddress" class="text-danger"></span></div>
     </div>
 
     <div class="text-center">
-        <button type="submit" class="btn btn-lg btn-theme">Register as a Customer</button>
+        <button type="submit" class="btn btn-lg btn-theme bg-success">Register as a Customer</button>
     </div>
 </form>
