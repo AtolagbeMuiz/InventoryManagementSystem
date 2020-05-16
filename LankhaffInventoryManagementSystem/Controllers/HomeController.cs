@@ -66,7 +66,7 @@ namespace LankhaffInventoryManagementSystem.Controllers
         {
             List<RegisterCustomer> customerList = new List<RegisterCustomer>();
             customerList = this.objCustomer.GetAllCustomers().ToList();
-            return View(customerList);
+            return View("DisplayAllCustomers" , customerList);
         }
     }
 }

@@ -9,7 +9,7 @@ namespace LankhaffInventoryManagementSystem.Models
     public class RegisterCustomer
     {
         [Required]
-        public int CustomerID { get; set; }
+        public int ID { get; set; }
         [Required]
         public string CustomerName { get; set; }
         [Required]

@@ -8,7 +8,7 @@
 <form asp-action="RegisterCustomer" method="post" role="form" class="contactForm">
     <div asp-validation-summary="ModelOnly" class="text-danger"></div>
     <div class="form-group">
-        <input asp-for="CustomerName" type="text" name="name" class="form-control" id="name" placeholder="Your Name" data-rule="minlen:4" data-msg="Please enter at least 4 chars" />
+        <input asp-for="CustomerName" type="text" class="form-control" id="name" placeholder="Your Name" data-rule="minlen:4" data-msg="Please enter at least 4 chars" />
         <div class="validation"><span asp-validation-for="CustomerName" class="text-danger"></span></div>
     </div>
     <div class="form-group">
@@ -20,7 +20,7 @@
         <div class="validation"><span asp-validation-for="CustomerTelephone" class="text-danger"></span></div>
     </div>
     <div class="form-group">
-        <textarea asp-for="CustomerAddress" class="form-control" name="" id="address" rows="5" data-rule="required" data-msg="Please enter your address" placeholder="Your Address"></textarea>
+        <textarea asp-for="CustomerAddress" class="form-control" id="address" rows="5" data-rule="required" data-msg="Please enter your address" placeholder="Your Address"></textarea>
         <div class="validation"><span asp-validation-for="CustomerAddress" class="text-danger"></span></div>
     </div>
 

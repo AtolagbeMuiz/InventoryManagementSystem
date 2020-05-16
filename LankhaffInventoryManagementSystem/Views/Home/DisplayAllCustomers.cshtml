@@ -23,18 +23,18 @@
             <!-- /.box-header -->
             <div class="box-body table-responsive no-padding">
                 <table class="table table-hover">
-                    <thead>
-                        <tr>Customer ID</tr>
-                        <tr>Customer Name</tr>
-                        <tr>Email</tr>
-                        <tr>Telephone Number</tr>
-                        <tr>Address</tr>
-                        <tr>Review</tr>
-                    </thead>
+                    <tr>
+                        <th>Customer ID</th>
+                        <th>Customer Name</th>
+                        <th>Email</th>
+                        <th>Telephone Number</th>
+                        <th>Address</th>
+                        <th>Review</th>
+                    </tr>
                     @foreach (var item in Model)
                      {
                         <tr>
-                            <td>@Html.DisplayFor(modelItem => item.CustomerID)</td>
+                            <td>@Html.DisplayFor(modelItem => item.ID)</td>
                             <td>@Html.DisplayFor(modelItem => item.CustomerName)</td>
                             <td>@Html.DisplayFor(modelItem => item.CustomerEmail)</td>
                             <td>@Html.DisplayFor(modelItem => item.CustomerTelephone)</td>
