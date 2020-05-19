@@ -43,6 +43,7 @@ namespace LankhaffInventoryManagementSystem
                 .AddEntityFrameworkStores<InventoryDBContext>();
 
             services.AddScoped<ICustomerInterface, CustomerRepo>();
+            services.AddScoped<IStockInterface, StockRepo>();
 
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
         }

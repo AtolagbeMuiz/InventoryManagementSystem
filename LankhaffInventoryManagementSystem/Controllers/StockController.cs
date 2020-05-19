@@ -15,13 +15,22 @@ namespace LankhaffInventoryManagementSystem.Controllers
         {
             this._objStock = accesslayer;
         }
-       public IActionResult RegisterStocks (RegisterStocks stock)
-       {
+
+        [HttpGet]
+        public IActionResult RegisterStocks()
+        {
+           
+            return View();
+        }
+
+        [HttpPost]
+        public IActionResult RegisterStocks (RegisterStocks stock)
+        {
             if (ModelState.IsValid)
             {
                 this._objStock.AddStock(stock);
             }
             return View();
-       }
+        }
     }
 }
