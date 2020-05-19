@@ -15,6 +15,8 @@ namespace LankhaffInventoryManagementSystem.Models
         }
 
         public DbSet<RegisterCustomer> Customers { get; set; }
+        public DbSet<RegisterStocks> Stocks { get; set; }
+
     }
 }
 

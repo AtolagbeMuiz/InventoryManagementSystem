@@ -205,7 +205,7 @@
 
                     </li>
                     <li>
-                        <a asp-controller="Home" asp-action="RegisterCustomer">
+                        <a asp-controller="Customer" asp-action="RegisterCustomer">
                             <i class="fa fa-files-o"></i>
                             <span>Register Customer</span>
                         </a>
@@ -213,14 +213,14 @@
                     </li>
 
                     <li class="treeview">
-                        <a href="#">
+                        <a asp-controller="Stock" asp-action="RegisterStocks">
                             <i class="fa fa-files-o"></i>
                             <span>Add Stock to Database</span>
                         </a>
                     </li>
 
                     <li>
-                        <a asp-controller="Home" asp-action="GetAllCustomers">
+                        <a asp-controller="Customer" asp-action="GetAllCustomers">
                             <i class="fa fa-files-o"></i>
                             <span>List of Customers</span>
                         </a>

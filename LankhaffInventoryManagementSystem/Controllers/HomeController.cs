@@ -10,12 +10,7 @@ namespace LankhaffInventoryManagementSystem.Controllers
 {
     public class HomeController : Controller
     {
-        private readonly ICustomerInterface objCustomer;
-
-        public HomeController(ICustomerInterface accesslayer)
-        {
-            this.objCustomer = accesslayer;
-        }
+        
         public IActionResult Index()
         {
             return View();
@@ -46,27 +41,6 @@ namespace LankhaffInventoryManagementSystem.Controllers
             return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
         }
 
-        [HttpGet]
-        public IActionResult RegisterCustomer()
-        {
-            return View();
-        }
-
-        [HttpPost]
-        public IActionResult RegisterCustomer(RegisterCustomer customer)
-        {
-            if (ModelState.IsValid)
-            {
-                objCustomer.AddCustomer(customer);
-            }
-            return View();
-        }
-
-        public IActionResult GetAllCustomers()
-        {
-            List<RegisterCustomer> customerList = new List<RegisterCustomer>();
-            customerList = this.objCustomer.GetAllCustomers().ToList();
-            return View("DisplayAllCustomers" , customerList);
-        }
+       
     }
 }
