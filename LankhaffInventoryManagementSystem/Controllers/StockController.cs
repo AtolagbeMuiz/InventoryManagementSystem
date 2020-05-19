@@ -19,7 +19,6 @@ namespace LankhaffInventoryManagementSystem.Controllers
         [HttpGet]
         public IActionResult RegisterStocks()
         {
-           
             return View();
         }
 

@@ -10,7 +10,7 @@ namespace LankhaffInventoryManagementSystem.Models
     {
         public int ID { get; set; }
 
-        public DateTime DateStockRegistered { get; set; }
+        public DateTime DateStockRegistered { get; set; } = DateTime.Now;
 
         [Required]
         public string StockName { get; set; }
