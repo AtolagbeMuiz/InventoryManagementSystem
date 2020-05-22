@@ -10,5 +10,7 @@ namespace LankhaffInventoryManagementSystem.Models
         RegisterCustomer AddCustomer(RegisterCustomer customer);
 
         IEnumerable<RegisterCustomer> GetAllCustomers();
+
+        List<RegisterCustomer> GetACustomer(int id);
     }
 }

@@ -25,6 +25,11 @@ namespace LankhaffInventoryManagementSystem.Models
             return _context.Customers;
         }
 
-
+        public List<RegisterCustomer> GetACustomer(int id)
+        {
+            List<RegisterCustomer> customerDetails = new List<RegisterCustomer>();
+            customerDetails.Add(this._context.Customers.Find(id));
+            return customerDetails;
+        }
     }
 }

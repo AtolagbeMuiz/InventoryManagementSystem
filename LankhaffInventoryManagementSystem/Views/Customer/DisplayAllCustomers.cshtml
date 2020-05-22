@@ -40,6 +40,7 @@
                             <td>@Html.DisplayFor(modelItem => item.CustomerTelephone)</td>
                             <td>@Html.DisplayFor(modelItem => item.CustomerAddress)</td>
                             <td><span class="label label-success">Approved</span></td>
+                            <td><a asp-controller="Sales" asp-action="SalesSheet" asp-route-id="@item.ID">Invoice</a></td>
                         </tr>
                      }
                 </table>

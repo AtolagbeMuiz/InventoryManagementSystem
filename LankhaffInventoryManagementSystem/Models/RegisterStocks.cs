@@ -14,5 +14,8 @@ namespace LankhaffInventoryManagementSystem.Models
 
         [Required]
         public string StockName { get; set; }
+
+        [Required]
+        public int StockPrice { get; set; }
     }
 }
