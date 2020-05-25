@@ -4,14 +4,16 @@ using LankhaffInventoryManagementSystem.Models;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace LankhaffInventoryManagementSystem.Migrations
 {
     [DbContext(typeof(InventoryDBContext))]
-    partial class InventoryDBContextModelSnapshot : ModelSnapshot
+    [Migration("20200522122904_AddedStockPriceMigration")]
+    partial class AddedStockPriceMigration
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder

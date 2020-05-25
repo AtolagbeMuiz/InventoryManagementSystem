@@ -10,14 +10,17 @@ namespace LankhaffInventoryManagementSystem.Controllers
     public class SalesController : Controller
     {
         private readonly ICustomerInterface _objCustomer;
-        public SalesController(ICustomerInterface accesslayer)
+        private readonly IStockInterface _objStock;
+
+        public SalesController(ICustomerInterface accesslayer, IStockInterface stock)
         {
             this._objCustomer = accesslayer;
+            this._objStock = stock;
         }
 
 
         [HttpGet]
-        public IActionResult SalesSheet(int id, RegisterCustomer customer)
+        public IActionResult SalesSheet(int id, RegisterCustomer customer,RegisterStocks stock)
         {
             if (id != customer.ID)
             {
@@ -25,9 +28,13 @@ namespace LankhaffInventoryManagementSystem.Controllers
             }
             else
             {
-                List<RegisterCustomer> customers = new List<RegisterCustomer>();
-                customers = this._objCustomer.GetACustomer(id).ToList();
-               return View(customers);
+                SalesSheetViewModel viewModel = new SalesSheetViewModel();
+                viewModel.Customers = this._objCustomer.GetACustomer(id).ToList();
+                viewModel.Stocks = this._objStock.GetStocks();
+                return View(viewModel);
+                //List<RegisterCustomer> customers = new List<RegisterCustomer>();
+                //customers = this._objCustomer.GetACustomer(id).ToList();
+                //return View(customers);
             }
            
         }
