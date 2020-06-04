@@ -9,10 +9,13 @@ namespace LankhaffInventoryManagementSystem.Models
     {
         private readonly InventoryDBContext _context;
 
+        //Initializes the DBCOntext by creating an instance 
         public CustomerRepo(InventoryDBContext context)
         {
             this._context = context;
         }
+        
+        //Adds a cutomer to the DB
         public RegisterCustomer AddCustomer(RegisterCustomer customer)
         {
             _context.Customers.Add(customer);
@@ -20,11 +23,13 @@ namespace LankhaffInventoryManagementSystem.Models
             return customer;
         }
 
+        //Gets the list of custoemrs from the DB
         public IEnumerable<RegisterCustomer> GetAllCustomers()
         {
             return _context.Customers;
         }
 
+        //gets a particular customer based on ID from the DB
         public List<RegisterCustomer> GetACustomer(int id)
         {
             List<RegisterCustomer> customerDetails = new List<RegisterCustomer>();

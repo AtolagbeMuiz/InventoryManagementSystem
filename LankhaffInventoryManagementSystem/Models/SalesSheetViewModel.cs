@@ -11,6 +11,7 @@ namespace LankhaffInventoryManagementSystem.Models
         public IEnumerable<RegisterCustomer> Customers { get; set; }
         //public List<RegisterStocks> Stocks { get; set; }
         public List<string> Stocks { get; set; }
+        public int sp { get; set; }
 
     }
 }

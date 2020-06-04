@@ -10,5 +10,6 @@ namespace LankhaffInventoryManagementSystem.Models
         RegisterStocks AddStock(RegisterStocks stock);
 
         List<string> GetStocks();
+        int getstockRate(string data);
     }
 }

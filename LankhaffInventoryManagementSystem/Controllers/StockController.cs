@@ -11,17 +11,20 @@ namespace LankhaffInventoryManagementSystem.Controllers
     {
         private readonly IStockInterface _objStock;
 
+        //Initilizes the IStockInterface by creating an instance
         public StockController(IStockInterface accesslayer)
         {
             this._objStock = accesslayer;
         }
 
+        //Returns the RegisterStock view 
         [HttpGet]
         public IActionResult RegisterStocks()
         {
             return View();
         }
 
+        //Accesses the StockRepo to add the stock to the DB
         [HttpPost]
         public IActionResult RegisterStocks (RegisterStocks stock)
         {

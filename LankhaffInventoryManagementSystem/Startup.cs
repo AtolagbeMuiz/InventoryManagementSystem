@@ -35,6 +35,7 @@ namespace LankhaffInventoryManagementSystem
                 options.MinimumSameSitePolicy = SameSiteMode.None;
             });
 
+            //This creates an instance of the application's DBContext and add the instance to the DBContextPool ad also gets the connection string for the sql server
             services.AddDbContextPool<InventoryDBContext>(options =>
                 options.UseSqlServer(
                     Configuration.GetConnectionString("DefaultConnection")));
@@ -42,6 +43,7 @@ namespace LankhaffInventoryManagementSystem
             services.AddDefaultIdentity<IdentityUser>()
                 .AddEntityFrameworkStores<InventoryDBContext>();
 
+            //This creates an instance of CustomerRepo 
             services.AddScoped<ICustomerInterface, CustomerRepo>();
             services.AddScoped<IStockInterface, StockRepo>();
 
