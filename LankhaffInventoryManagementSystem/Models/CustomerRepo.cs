@@ -18,8 +18,11 @@ namespace LankhaffInventoryManagementSystem.Models
         //Adds a cutomer to the DB
         public RegisterCustomer AddCustomer(RegisterCustomer customer)
         {
-            _context.Customers.Add(customer);
-            _context.SaveChanges();
+            if(!(_context.Customers.Any(x => x.CustomerName == customer.CustomerName)))
+            {
+                _context.Customers.Add(customer);
+                _context.SaveChanges();
+            }
             return customer;
         }
 

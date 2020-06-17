@@ -22,7 +22,7 @@
                     <strong>Lankhaff Nig Ltd.</strong><br>
                     Hon. Tokunbo Amele Str,<br>
                     Lagos, Nigeria<br>
-                    Phone: (+234) 08036064275<br>
+                    Phone: (+234) 63764275<br>
                     Email: info@lankhaffNigLtd.com
                 </address>
             </div>
@@ -75,6 +75,7 @@
                     <td><input type="text" class="form-control" /></td>
                     <td>
                         <input type="text" value="@Model.sp" class="form-control" readonly />
+                        @*<input type="text" name="" value="@ViewBag.StockPrice" readonly/>*@
 
                     </td>
                     <td><input type="text" class="form-control" /></td>
@@ -98,49 +99,53 @@
 </form>
 
 @*<script type="text/javascript" language="javascript">
-    //function DoPostBack() {
-    //    var select = document.getElementById("selectStock").value;
-    //   // var option = select.options[select.selectedIndex];
-    //    if (select != "---Select Stock---") {
-    //        document.SalesSheetForm.action = "/Sales/getstockPrice";
-    //        document.SalesSheetForm.submit();
-    //    }
-    //}
+        //function DoPostBack() {
+        //    var select = document.getElementById("selectStock").value;
+        //   // var option = select.options[select.selectedIndex];
+        //    if (select != "---Select Stock---") {
+        //        document.SalesSheetForm.action = "/Sales/getstockPrice";
+        //        document.SalesSheetForm.submit();
+        //    }
+        //}
 
-    //$(document).ready(function DoPostBack() {
-    $('#selectStock').on("change", function () {
-        var customObject = $('#selectStock').val();
-        var select = JSON.stringify(customObject);
-        $.ajax({
-            type: "POST",
-            url: "/Sales/getstockPrice",
-            //data: {
-            //    select: JSON.stringify($("#selectStock").val())
-            //},
-            //data: '{select: "' + $("#selectStock").val() + '" }',
+        //$(document).ready(function DoPostBack() {
+        $('#selectStock').on("change", function () {
+            var customObject = $('#selectStock').val();
+            var select = JSON.stringify(customObject);
+            $.ajax({
+                type: "POST",
+                url: "/Sales/getstockPrice",
+                //data: {
+                //    select: JSON.stringify($("#selectStock").val())
+                //},
+                //data: '{select: "' + $("#selectStock").val() + '" }',
 
-            data: { select: select},
-            contentType: "application/json; charset=utf-8",
-            dataType: "json",
-            success: function () {
-                alert("success");
-            },
-            error: function (response) {
-                alert(response.d);
-            }
-            //alert(data);
+                data: { select: select},
+                contentType: "application/json; charset=utf-8",
+                dataType: "json",
+                success: function () {
+                    alert("success");
+                },
+                error: function (response) {
+                    alert(response.d);
+                }
+                //alert(data);
+            })
         })
-    })
-</script>*@
+    </script>*@
 
 @*------JQuery scripts that passes the selected stock into getstockPrice action method in the SalesController---------*@
 <script type="text/javascript" language="javascript">
-    $('#selectStock').on("change", function () {
-        var item = $('#selectStock option:selected').text();
+    $(document).ready(function () {
+        $('#selectStock').on("change", function () {
+            var item = $('#selectStock option:selected').text();
 
-        $.post("/Sales/getstockPrice",
-        {
-            data: item
+            $.post("/Sales/getstockPrice",
+                {
+                    data: item
+                });
         });
-    });
+    })
+
+
 </script>

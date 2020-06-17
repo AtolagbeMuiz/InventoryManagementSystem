@@ -19,8 +19,11 @@ namespace LankhaffInventoryManagementSystem.Models
         //Adds the Stock to the DB
         public RegisterStocks AddStock(RegisterStocks stock)
         {
-            _context.Stocks.Add(stock);
-            _context.SaveChanges();
+            if(!(_context.Stocks.Any(x => x.StockName == stock.StockName)))
+            {
+                _context.Stocks.Add(stock);
+                _context.SaveChanges();
+            }
             return stock;
         }
 

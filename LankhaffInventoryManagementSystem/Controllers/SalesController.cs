@@ -19,6 +19,7 @@ namespace LankhaffInventoryManagementSystem.Controllers
             this._objStock = stock;
         }
 
+
         //displays the Invoice, a view model called SalesSheetViewModel is used to pass multiple models into the SalesSheet view
         [HttpGet]
         public IActionResult SalesSheet(int id, RegisterCustomer customer)
@@ -43,12 +44,12 @@ namespace LankhaffInventoryManagementSystem.Controllers
         public IActionResult getstockPrice(string data)
         {
             SalesSheetViewModel viewModel = new SalesSheetViewModel();
-            var resultPrice = this._objStock.getstockRate(data);
+            var resultPrice = this._objStock.getstockRate(data).ToString();
             //ViewBag.StateEnabled = true;
             //ViewBag.StockPrice = resultPrice;
             viewModel.sp = resultPrice;
-
-            return View("SalesSheet");
+            return View("SalesSheet", viewModel.sp);
+            
         }
     }
 }
