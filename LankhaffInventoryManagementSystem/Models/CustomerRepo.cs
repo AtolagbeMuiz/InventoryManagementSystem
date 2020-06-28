@@ -16,14 +16,22 @@ namespace LankhaffInventoryManagementSystem.Models
         }
         
         //Adds a cutomer to the DB
-        public RegisterCustomer AddCustomer(RegisterCustomer customer)
+        public string AddCustomer(RegisterCustomer customer)
         {
+            string message = string.Empty;
             if(!(_context.Customers.Any(x => x.CustomerName == customer.CustomerName)))
             {
                 _context.Customers.Add(customer);
                 _context.SaveChanges();
+                message= "Customer Saved";
+                return message;
             }
-            return customer;
+            else
+            {
+                message = "Customer already exists";
+                return message;
+            }
+            //return customer;
         }
 
         //Gets the list of custoemrs from the DB

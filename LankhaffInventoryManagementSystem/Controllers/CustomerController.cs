@@ -30,7 +30,8 @@ namespace LankhaffInventoryManagementSystem.Controllers
         {
             if (ModelState.IsValid)
             {
-                objCustomer.AddCustomer(customer);
+                var mess = objCustomer.AddCustomer(customer).ToString();
+                ViewBag.Message = mess;
             }
             return View();
         }

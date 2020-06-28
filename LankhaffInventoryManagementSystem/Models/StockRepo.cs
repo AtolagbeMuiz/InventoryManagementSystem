@@ -17,14 +17,21 @@ namespace LankhaffInventoryManagementSystem.Models
         }
 
         //Adds the Stock to the DB
-        public RegisterStocks AddStock(RegisterStocks stock)
+        public string AddStock(RegisterStocks stock)
         {
+            string message = string.Empty;
             if(!(_context.Stocks.Any(x => x.StockName == stock.StockName)))
             {
                 _context.Stocks.Add(stock);
                 _context.SaveChanges();
+                message = "Stock Saved";
+                return message;
             }
-            return stock;
+            else
+            {
+                message = "Stock already Exists in the Database";
+                return message;
+            }
         }
 
         //Gets the List of Stocks from the DB

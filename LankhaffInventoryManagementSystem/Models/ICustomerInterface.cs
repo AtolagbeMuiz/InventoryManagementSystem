@@ -7,7 +7,7 @@ namespace LankhaffInventoryManagementSystem.Models
 {
     public interface ICustomerInterface
     {
-        RegisterCustomer AddCustomer(RegisterCustomer customer);
+        string AddCustomer(RegisterCustomer customer);
 
         IEnumerable<RegisterCustomer> GetAllCustomers();
 

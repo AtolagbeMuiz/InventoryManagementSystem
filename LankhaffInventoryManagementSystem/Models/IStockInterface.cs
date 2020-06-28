@@ -7,7 +7,7 @@ namespace LankhaffInventoryManagementSystem.Models
 {
     public interface IStockInterface
     {
-        RegisterStocks AddStock(RegisterStocks stock);
+        string AddStock(RegisterStocks stock);
 
         List<string> GetStocks();
         int getstockRate(string data);

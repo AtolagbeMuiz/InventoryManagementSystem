@@ -30,7 +30,8 @@ namespace LankhaffInventoryManagementSystem.Controllers
         {
             if (ModelState.IsValid)
             {
-                this._objStock.AddStock(stock);
+                var mess = this._objStock.AddStock(stock).ToString();
+                ViewBag.Message = mess;
             }
             return View();
         }
