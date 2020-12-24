@@ -3,6 +3,7 @@
 @{
     ViewData["Title"] = "SalesSheet";
 }
+  
 <form asp-controller="Sales" method="post" name="SalesSheetForm">
     <section class="invoice">
         <div class="row">
@@ -73,13 +74,16 @@
                         </select>
                     </td>
                     <td><input type="text" class="form-control" /></td>
-                    <td>
-                        <input type="text" value="@Model.sp" class="form-control" readonly />
-                        @*<input type="text" name="" value="@ViewBag.StockPrice" readonly/>*@
 
-                    </td>
-                    <td><input type="text" class="form-control" /></td>
-                </tr>
+
+                    <td>
+
+                            <input type="text" value="@Model.sp" class="form-control" readonly />
+                            @*<input type="text" value="@ViewBag.StockPrice" readonly />*@
+                            
+                     </td>
+                        <td><input type="text" class="form-control" /></td>
+                    </tr>
 
                 <tr>
                     <td>
@@ -136,16 +140,16 @@
 
 @*------JQuery scripts that passes the selected stock into getstockPrice action method in the SalesController---------*@
 <script type="text/javascript" language="javascript">
-    $(document).ready(function () {
+    //$(document).ready(function () {
         $('#selectStock').on("change", function () {
             var item = $('#selectStock option:selected').text();
 
             $.post("/Sales/getstockPrice",
                 {
-                    data: item
+                    data: item,
+                
                 });
+           
         });
-    })
-
-
+    //}
 </script>

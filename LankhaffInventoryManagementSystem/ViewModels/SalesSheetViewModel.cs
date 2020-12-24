@@ -13,7 +13,7 @@ namespace LankhaffInventoryManagementSystem.Models
         //public List<RegisterStocks> Stocks { get; set; }
         public List<string> Stocks { get; set; }
 
-        //[Required]
+        [Required]
         public string sp { get; set; }
 
     }

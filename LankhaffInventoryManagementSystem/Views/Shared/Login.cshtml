@@ -1,4 +1,4 @@
-﻿
+﻿@model IEnumerable<string>
 @{
     Layout = null;
 }
@@ -71,10 +71,15 @@
             </form>
             <div class="social-auth-links text-center">
                 <p>- OR -</p>
-                <a href="#" class="btn btn-block btn-social btn-twitter btn-flat">
-                    <i class="fa fa-twitter"></i> Sign in using
-                    Twitter
-                </a>
+
+               @foreach(var item in Model)
+                {
+                    <a asp-controller="Login" asp-action="SignIn" asp-route-provider="@item" class="btn btn-block btn-social btn-twitter btn-flat">
+                        <i class="fa fa-twitter"></i> Sign in using
+                        Twitter
+                    </a>
+                }
+                
                 <a href="#" class="btn btn-block btn-social btn-google btn-flat">
                     <i class="fa fa-google-plus"></i> Sign in using
                     Google+

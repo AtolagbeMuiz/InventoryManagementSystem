@@ -13,6 +13,8 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using LankhaffInventoryManagementSystem.Models;
+using Microsoft.AspNetCore.Authentication.Cookies;
+using Microsoft.AspNetCore.Authentication.OpenIdConnect;
 
 namespace LankhaffInventoryManagementSystem
 {
@@ -42,6 +44,20 @@ namespace LankhaffInventoryManagementSystem
 
             services.AddDefaultIdentity<IdentityUser>()
                 .AddEntityFrameworkStores<InventoryDBContext>();
+
+            services.AddAuthentication(options =>
+            {
+                options.DefaultScheme = CookieAuthenticationDefaults.AuthenticationScheme;
+                options.DefaultChallengeScheme = CookieAuthenticationDefaults.AuthenticationScheme;
+            })
+            .AddTwitter(twitterOptions =>
+            {
+                //twitterOptions.ConsumerKey = Configuration["Authentication:Twitter:ConsumerKey"];
+                //twitterOptions.ConsumerSecret = Configuration["Authentication:Twitter:ConsumerSecret"];
+                twitterOptions.ConsumerKey = "gwUu9zVtC0oh6BQvAHqVOnXDL";
+                twitterOptions.ConsumerSecret = "JqFTbNWeoyaivkSIfjEK83nJ0f8QOTRCS4oyBRgil0ohk8ScQn";
+            })
+            .AddCookie();
 
             //This creates an instance of CustomerRepo 
             services.AddScoped<ICustomerInterface, CustomerRepo>();

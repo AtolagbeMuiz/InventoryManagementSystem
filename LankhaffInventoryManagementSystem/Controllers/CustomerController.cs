@@ -4,6 +4,8 @@ using System.Linq;
 using System.Threading.Tasks;
 using LankhaffInventoryManagementSystem.Models;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Authorization;
+
 
 namespace LankhaffInventoryManagementSystem.Controllers
 {
@@ -16,6 +18,7 @@ namespace LankhaffInventoryManagementSystem.Controllers
         {
             this.objCustomer = accesslayer;
         }
+
 
         //Renders the RegisterCustomer View to register the Customer
         [HttpGet]

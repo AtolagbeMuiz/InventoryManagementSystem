@@ -27,6 +27,7 @@ namespace LankhaffInventoryManagementSystem.Controllers
             if (id != customer.ID)
             {
                 return NotFound();
+
             }
             else
             {
@@ -45,11 +46,17 @@ namespace LankhaffInventoryManagementSystem.Controllers
         {
             SalesSheetViewModel viewModel = new SalesSheetViewModel();
             var resultPrice = this._objStock.getstockRate(data).ToString();
+            
+
             //ViewBag.StateEnabled = true;
             //ViewBag.StockPrice = resultPrice;
             viewModel.sp = resultPrice;
-            return View("SalesSheet", viewModel.sp);
-            
+
+            return View("SalesSheet");
+            //return RedirectToAction("SalesSheet");
+            //return resultPrice;
+            //return viewModel.sp;
+
         }
     }
 }
